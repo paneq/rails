@@ -1,0 +1,53 @@
+FROM ubuntu:20.04
+ARG RUBY_PATH=/usr/local/
+ARG RUBY_VERSION=2.6.5
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update \
+&&  apt-get upgrade -y --force-yes \
+&&  apt-get install -y --force-yes \
+    libssl-dev \
+    libreadline-dev \
+    zlib1g-dev \
+    wget \
+    curl \
+    git \
+    gcc \
+    make \
+    build-essential \
+    tzdata \
+    ruby-dev \
+    tzdata \
+    libjemalloc-dev
+
+RUN git clone git://github.com/rbenv/ruby-build.git $RUBY_PATH/plugins/ruby-build \
+&&  $RUBY_PATH/plugins/ruby-build/install.sh
+RUN RUBY_CONFIGURE_OPTS=--with-jemalloc ruby-build $RUBY_VERSION $RUBY_PATH
+
+# COPY --from=rubybuild $RUBY_PATH $RUBY_PATH
+
+RUN apt-get install -y --force-yes \
+    mysql-client \
+    libmysqlclient-dev \
+    libxslt1-dev \
+    libxml2-dev \
+    libmysqlclient-dev \
+    redis-server \
+    libsqlite3-dev \
+    liblzma-dev \
+    libncurses-dev \
+    libpq-dev \
+    less \
+    time \
+    vim \
+    strace \
+&&  apt-get clean \
+&&  rm -rf /var/cache/apt/archives/*
+
+RUN gem install bundler
+RUN gem install pkg-config -v "~> 1.1"
+WORKDIR /rails
+COPY . ./
+RUN bundle config build.nokogiri --use-system-libraries
+RUN bundle check || bundle install

@@ -10,12 +10,12 @@ gemspec
 gem "rake", ">= 11.1"
 
 gem "capybara", ">= 3.26"
-gem "selenium-webdriver", ">= 3.141.592"
+# gem "selenium-webdriver", ">= 3.141.592"
 
 gem "rack-cache", "~> 1.2"
-gem "sass-rails"
-gem "turbolinks", "~> 5"
-gem "webpacker", "~> 5.0", require: ENV["SKIP_REQUIRE_WEBPACKER"] != "true"
+# gem "sass-rails"
+# gem "turbolinks", "~> 5"
+# gem "webpacker", "~> 5.0", require: ENV["SKIP_REQUIRE_WEBPACKER"] != "true"
 # require: false so bcrypt is loaded only when has_secure_password is used.
 # This is to avoid Active Model (and by extension the entire framework)
 # being dependent on a binary library.
@@ -54,42 +54,42 @@ gem "bootsnap", ">= 1.4.4", require: false
 
 # Active Job
 group :job do
-  gem "resque", require: false
-  gem "resque-scheduler", require: false
-  gem "sidekiq", require: false
-  gem "sucker_punch", require: false
-  gem "delayed_job", require: false
-  gem "queue_classic", github: "QueueClassic/queue_classic", require: false, platforms: :ruby
-  gem "sneakers", require: false
-  gem "que", require: false
-  gem "backburner", require: false
-  gem "delayed_job_active_record", require: false
-  gem "sequel", require: false
+  # gem "resque", require: false
+  # gem "resque-scheduler", require: false
+  # gem "sidekiq", require: false
+  # gem "sucker_punch", require: false
+  # gem "delayed_job", require: false
+  # gem "queue_classic", github: "QueueClassic/queue_classic", require: false, platforms: :ruby
+  # gem "sneakers", require: false
+  # gem "que", require: false
+  # gem "backburner", require: false
+  # gem "delayed_job_active_record", require: false
+  # gem "sequel", require: false
 end
 
 # Action Cable
 group :cable do
-  gem "puma", require: false
-
-  gem "hiredis", require: false
-  gem "redis", "~> 4.0", require: false
-
-  gem "redis-namespace"
-
-  gem "websocket-client-simple", github: "matthewd/websocket-client-simple", branch: "close-race", require: false
-
-  gem "blade", require: false, platforms: [:ruby]
-  gem "blade-sauce_labs_plugin", require: false, platforms: [:ruby]
-  gem "sprockets-export", require: false
+  # gem "puma", require: false
+  #
+  # gem "hiredis", require: false
+  # gem "redis", "~> 4.0", require: false
+  #
+  # gem "redis-namespace"
+  #
+  # gem "websocket-client-simple", github: "matthewd/websocket-client-simple", branch: "close-race", require: false
+  #
+  # gem "blade", require: false, platforms: [:ruby]
+  # gem "blade-sauce_labs_plugin", require: false, platforms: [:ruby]
+  # gem "sprockets-export", require: false
 end
 
 # Active Storage
 group :storage do
-  gem "aws-sdk-s3", require: false
-  gem "google-cloud-storage", "~> 1.11", require: false
-  gem "azure-storage-blob", require: false
-
-  gem "image_processing", "~> 1.2"
+  # gem "aws-sdk-s3", require: false
+  # gem "google-cloud-storage", "~> 1.11", require: false
+  # gem "azure-storage-blob", require: false
+  #
+  # gem "image_processing", "~> 1.2"
 end
 
 # Action Mailbox
@@ -125,11 +125,11 @@ platforms :ruby, :mswin, :mswin64, :mingw, :x64_mingw do
   gem "racc", ">=1.4.6", require: false
 
   # Active Record.
-  gem "sqlite3", "~> 1.4"
+  # gem "sqlite3", "~> 1.4"
 
   group :db do
-    gem "pg", "~> 1.1"
-    gem "mysql2", "~> 0.5"
+    # gem "pg", "~> 1.1"
+    # gem "mysql2", "~> 0.5"
   end
 end
 

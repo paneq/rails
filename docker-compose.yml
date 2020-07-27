@@ -1,10 +1,18 @@
 version: '3.4'
 
 services:
-  devrails:
+#  devrails:
+#    tty: true
+#    stdin_open: true
+#    build:
+#      dockerfile: Dockerfile
+#      context: .
+#    entrypoint: ["tail", "-f", "/dev/null"]
+
+  ubuntudevrails:
     tty: true
     stdin_open: true
     build:
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.ubuntu
       context: .
     entrypoint: ["tail", "-f", "/dev/null"]
